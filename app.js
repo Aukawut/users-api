@@ -117,6 +117,14 @@ app.post('/getperuser',(req,res) => {
         }
     )
 })
+app.get('/travel',(req,res) => {
+    connection.query(
+        'SELECT * FROM attractions',function(err,results){
+            if(err){ throw err}
+            res.json({err:false,results:results})
+        }
+    )
+})
 app.listen(process.env.PORT || 5001, function () {
   console.log('Server is running..')
 })
