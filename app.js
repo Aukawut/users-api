@@ -53,6 +53,15 @@ app.post('/update',(req,res) => {
         }
     )
 })
+app.post('/getPerUser',(req,res) => {
+    const id = req.body.id
+    connection.query(
+        'SELECT * FROM tb_users WHERE id = ?',[id],function(err,results){
+            if(err){ throw err}
+            res.json({err:false,results:results})
+        }
+    )
+})
 app.listen(process.env.PORT || 5001, function () {
   console.log('Server is running..')
 })
