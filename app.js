@@ -53,7 +53,7 @@ app.post('/update',(req,res) => {
         }
     )
 })
-app.post('/getPerUser',(req,res) => {
+app.post('/getperuser',(req,res) => {
     const id = req.body.id
     connection.query(
         'SELECT * FROM tb_users WHERE id = ?',[id],function(err,results){
